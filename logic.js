@@ -296,8 +296,25 @@ function createLoadingIndicator() {
 const loadMoreProducts = () => {
   if (isLoading) return;
 
+  // Get viewport dimensions
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  // Calculate trigger point based on viewport width
+  // For mobile (<768px): trigger when 1.5x viewport height from bottom
+  // For tablets (768px-1024px): trigger when 600px from bottom
+  // For desktop (>1024px): trigger when 1000px from bottom
+  let triggerOffset;
+  if (viewportWidth < 768) {
+    triggerOffset = viewportHeight * 1.5; // This makes it trigger much earlier on mobile
+  } else if (viewportWidth < 1024) {
+    triggerOffset = 600;
+  } else {
+    triggerOffset = 1000;
+  }
+
   const scrollPosition = window.innerHeight + window.scrollY;
-  const pageEnd = document.documentElement.offsetHeight - 1000;
+  const pageEnd = document.documentElement.offsetHeight - triggerOffset;
 
   if (scrollPosition >= pageEnd) {
     isLoading = true;
@@ -330,7 +347,7 @@ const loadMoreProducts = () => {
       });
 
       isLoading = false;
-    }, 800); // Simulate network delay
+    }, 800);
   }
 };
 

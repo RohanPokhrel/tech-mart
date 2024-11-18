@@ -13,11 +13,11 @@
         font-family: "Inter", sans-serif;
       }
     </style>
-    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="dist/output.css" />
   </head>
   <body class="bg-white">
     <!-- Header -->
-    <header class="border-b">
+    <header class="sticky top-0 z-50 bg-white border-b">
       <div class="container mx-auto px-4">
         <!-- Top Header -->
         <div class="flex items-center justify-between h-16">
@@ -212,7 +212,7 @@
             </div>
 
             <div
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+              class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
             >
               <!-- Product cards will be inserted here by JavaScript -->
             </div>
@@ -227,7 +227,7 @@
               >
             </div>
             <div
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+              class="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
             >
               <!-- Product cards will be inserted here by JavaScript -->
             </div>
@@ -413,5 +413,5 @@
       </div>
     </footer>
   </body>
-  <script src="logic.js"></script>
+  <script src="src/logic.js"></script>
 </html>
